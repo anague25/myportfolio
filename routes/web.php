@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Herocontroller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +23,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         return view('dashboard');
     })->name('dashboard');
 
-    Route::prefix('/portfolio')->group(function(){
-        Route::get("/index",[HomeController::class,'index'])->name('portfolio');
+    Route::prefix('portfolio')->group(function(){
+        Route::get("/",[Herocontroller::class,'index'])->name('portfolio');
+        Route::get("/create",[Herocontroller::class,'create'])->name('portfolio.create');
+        Route::get("/edit",[Herocontroller::class,'edit'])->name('portfolio.edit');
     });
 
 
