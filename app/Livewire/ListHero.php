@@ -2,12 +2,15 @@
 
 namespace App\Livewire;
 
+use App\Models\Hero;
 use Livewire\Component;
 
 class ListHero extends Component
 {
     public function render()
     {
-        return view('livewire.list-hero');
+        $heroes = Hero::orderByDesc('id')->paginate(5);
+
+        return view('livewire.list-hero', compact('heroes'));
     }
 }
