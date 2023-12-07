@@ -1,6 +1,15 @@
 <div>
     <div class="card">
-        <h5 class="card-header">Profil List</h5>
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="align-middle text-center ">Profile List</h5>
+                <div>
+                    <a class="btn btn-primary" href="{{route('portfolio.create')}}">Add Profile</a>
+                </div>
+            </div>
+
+            
+        </div>
         <div class="card-body">
 
             <table class="table">
