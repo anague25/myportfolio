@@ -14,6 +14,6 @@ class Herocontroller extends Controller
         return view("heroes.create");
     }
     public function edit(Hero $heroes){
-        return view("heroes.list",compact('heroes'));
+        return view("heroes.edit",['heroes' => $heroes]);
     }
 }

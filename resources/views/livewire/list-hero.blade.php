@@ -18,35 +18,53 @@
                 @endif
         <div class="card-body">
 
-            <table class="table text-center align-middle">
+            <table class="table align-middle text-center">
                 <thead>
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Job</th>
-                    <th scope="col">image</th>
                     <th scope="col">Staus</th>
+                    <th scope="col" >Image</th>
                     <th scope="col">Created At</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody >
                  @forelse ($heroes as $item)
                  <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$item->firstName}}</td>
                     <td>{{$item->lastName}}</td>
                     <td>{{$item->job}}</td>
-                    <td>{{Str::limit($item->img,20)}}</td>
-                    <td>{{$item->active}}</td>
+                    <td>
+                        <button class="btn {{$item->active == 1 ? 'btn-success':'btn-danger'}} "  wire:click='toggleStatus({{$item->id}})'>{{$item->active == 1 ? 'Active':'Inactive'}}</button>
+                    </td>
+                   
+                    {{-- show image --}}
+                    <td class="d-flex justify-content-center">
+                            {{-- <img src="{{asset('storage/'.$heroes->img)}}" alt="profile-photo" width="150" height="150"> --}}
+                            <img src="{{$item->imageUrl($item->img)}}" class="text-center border ms-2"  alt="profile-photo" width="60" height="60"> 
+                    </td>
+                    {{-- <td>{{Str::limit($item->img,20)}}</td> --}}
+                   
                     <td>{{$item->created_at->diffForHumans()}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{route('portfolio.edit',['heroes'=>$item->id])}}">Edit</a>
+                        <a class="btn btn-danger" wire:click='delete({{$item->id}})'>Delete</a>
+                    </td>
                   </tr>
                  @empty
-                     
+                     <div class="text-center text-uppercase alert alert-danger">
+                        <h2>we don't found any data</h2>
+                     </div>
                  @endforelse
                  
                 </tbody>
-              </table>         
+              </table>   
+              
+              <p>{{$heroes->Links()}}</p>
           
         </div>
       </div> {{-- Nothing in the world is as soft and yielding as water. --}}

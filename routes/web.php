@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Herocontroller;
+use App\Models\Hero;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $heroes = Hero::where('active','1')->first();
     return view('myportfolio.index');
 });
 
@@ -26,7 +28,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::prefix('portfolio')->group(function(){
         Route::get("/",[Herocontroller::class,'index'])->name('portfolio');
         Route::get("/create",[Herocontroller::class,'create'])->name('portfolio.create');
-        Route::get("/edit",[Herocontroller::class,'edit'])->name('portfolio.edit');
+        Route::get("/edit/{heroes}",[Herocontroller::class,'edit'])->name('portfolio.edit');
     });
 
 
