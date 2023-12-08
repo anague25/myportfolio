@@ -46,8 +46,14 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+        @if ($heroes->id)
+          <img src="{{$heroes->imageUrl($heroes->img)}}" alt="" style="width: 200px;height:180px"  class="img-fluid rounded-circle">
+          <h1 class="text-light"><a href="index.html">{{$heroes->firstName}}</a></h1>
+        @else
+          <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+          <h1 class="text-light"><a href="index.html">No Name</a></h1>
+        @endif
+        
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -71,12 +77,36 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Alex Smith</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
-    </div>
-  </section><!-- End Hero -->
+
+
+  {{-- background image --}}
+  <style>
+
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("{{$heroes->imageUrl($heroes->img)}}") top center;
+  background-size: cover;
+}
+
+  </style>
+
+  @if ($heroes->id)
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-container ms-5" data-aos="fade-in">
+        <h1 class="fs-1">{{$heroes->firstName.' '.$heroes->lastName}}</h1>
+        <p>I'm <span class="typed" data-typed-items="{{$heroes->job}}"></span></p>
+      </div>
+    </section>
+  @else
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-container" data-aos="fade-in">
+        <h1>Alex Smith</h1>
+        <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+      </div>
+    </section>
+  @endif
+ <!-- End Hero -->
 
   <main id="main">
 
