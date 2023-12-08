@@ -18,7 +18,7 @@ class ListSocial extends Component
             Storage::disk('public')->delete($social->icon);
         }
         $social->delete();
-        return redirect()->route("social")->with("success","social network was deleted succesfully");
+        return redirect()->back()->with("success","social network was deleted succesfully");
 
     }
 
@@ -42,6 +42,6 @@ class ListSocial extends Component
     {
         $social = Social::orderByDesc('id')->paginate(3);
 
-        return view('livewire.list-social',compact('social'));
+        return view('livewire.list-social',["social"=>$social]);
     }
 }

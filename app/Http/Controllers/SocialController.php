@@ -14,6 +14,7 @@ class SocialController extends Controller
         return view("social.create");
     }
     public function edit(Social $social){
-        return view("social.edit",['social' => $social]);
+       $socials = Social::findOrfail($social->id);
+        return view("social.edit",['socials'=>$socials]);
     }
 }

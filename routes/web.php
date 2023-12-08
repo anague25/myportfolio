@@ -34,8 +34,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::prefix('social')->group(function(){
         Route::get("/",[SocialController::class,'index'])->name('social');
-        Route::get("/create",[SocialController::class,'create'])->name('social.create');
         Route::get("/edit/{social}",[SocialController::class,'edit'])->name('social.edit');
+        Route::get("/create",[SocialController::class,'create'])->name('social.create');
+
     });
 
 

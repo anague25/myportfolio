@@ -52,7 +52,7 @@
                    
                     <td>{{$item->created_at->diffForHumans()}}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('portfolio.edit',['heroes'=>$item->id])}}">Edit</a>
+                        <a class="btn btn-primary" href="{{route('social.edit',['social' => $item->id])}}">Edit</a>
                         <a class="btn btn-danger" wire:click='delete({{$item->id}})'>Delete</a>
                     </td>
                   </tr>

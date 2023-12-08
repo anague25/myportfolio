@@ -5,6 +5,9 @@
                  <div class="card-header">
                          <h5>Edit Profile</h5>
                  </div>
+                 
+                    {{ $socials}}   
+                 
  
  {{-- status message --}}
                  
