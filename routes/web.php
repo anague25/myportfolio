@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Herocontroller;
 use App\Http\Controllers\SocialController;
+use App\Models\About;
 use App\Models\Hero;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $heroes = Hero::where('active','1')->first();
-    return view('myportfolio.index',compact('heroes'));
+    $about = About::orderByDesc('id')->first();
+    return view('myportfolio.index',compact('heroes','about'));
 });
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
@@ -34,8 +37,17 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::prefix('social')->group(function(){
         Route::get("/",[SocialController::class,'index'])->name('social');
-        Route::get("/edit/{social}",[SocialController::class,'edit'])->name('social.edit');
         Route::get("/create",[SocialController::class,'create'])->name('social.create');
+        Route::get("/edit/{social}",[SocialController::class,'edit'])->name('social.edit');
+
+
+    });
+
+    Route::prefix('about')->group(function(){
+        Route::get("/",[AboutController::class,'index'])->name('about');
+        Route::get("/create",[AboutController::class,'create'])->name('about.create');
+        Route::get("/edit/{about}",[AboutController::class,'edit'])->name('about.edit');
+
 
     });
 

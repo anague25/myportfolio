@@ -63,7 +63,7 @@
                                <div class="text-danger">{{$message}}</div>
                            @enderror 
                          </div>
-
+                         {{-- update image --}}
                          <div class="my-2">
                             <span class="text-success fw-bold">Current Picture</span>
                             {{-- <img src="{{asset('storage/'.$heroes->img)}}" alt="profile-photo" width="150" height="150"> --}}

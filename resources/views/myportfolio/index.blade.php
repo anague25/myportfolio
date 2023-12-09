@@ -111,6 +111,47 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
+   
+    @if ($about->id)
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="{{$about->imageUrl($about->image)}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3 class="text-uppercase">{{$about->title}}.</h3>
+            <p class="fst-italic">
+             {{$about->shortText}}.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{date('d M Y', strtotime($about->birthday))}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{$about->website}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{$about->phone}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{$about->city}}</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{$about->age}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{$about->degree}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong> <span>{{$about->email}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>{{$about->freelance}}</span></li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              {{$about->longText}}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    @else
     <section id="about" class="about">
       <div class="container">
 
@@ -155,7 +196,11 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section>
+    @endif
+
+
+    <!-- End About Section -->
 
     <!-- ======= Facts Section ======= -->
     <section id="facts" class="facts">
