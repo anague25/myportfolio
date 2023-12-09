@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Exception;
 use App\Models\About;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -123,7 +124,7 @@ class EditAbout extends Component
             }
 
 
-        }catch(\Exception $e)
+        }catch(Exception $e)
         {
            dd($e->getMessage());
         }

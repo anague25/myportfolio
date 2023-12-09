@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Exception;
 use App\Models\Social;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -62,7 +63,7 @@ class EditSocial extends Component
             }
 
 
-        }catch(\Exception $e)
+        }catch(Exception $e)
         {
             dd($e->getMessage());
         }

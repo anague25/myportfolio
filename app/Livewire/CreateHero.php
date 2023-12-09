@@ -43,7 +43,7 @@ class CreateHero extends Component
             }
 
 
-        }catch(Exception $e)
+        }catch(\Exception $e)
         {
            dd($e->getMessage());
         }

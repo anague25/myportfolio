@@ -259,7 +259,23 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-        <div class="row skills-content">
+     
+
+      <div class="row skills-content">
+
+      @forelse ($skills as $item)
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="progress">
+          <span class="skill">{{$item->skillName}} <i class="val">{{$item->percentage}}%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{$item->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+          
+      @empty
 
           <div class="col-lg-6" data-aos="fade-up">
 
@@ -294,24 +310,29 @@
                 <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
-
+  
             <div class="progress">
               <span class="skill">WordPress/CMS <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
-
+  
             <div class="progress">
               <span class="skill">Photoshop <i class="val">55%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
-
+  
           </div>
+      @endforelse
 
-        </div>
+       
+
+      </div>
+          
+     
 
       </div>
     </section><!-- End Skills Section -->
