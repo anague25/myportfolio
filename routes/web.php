@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\EducationController;
 use App\Models\Hero;
 use App\Models\About;
 use App\Models\Skill;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Herocontroller;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\SumaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +61,30 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get("/",[SkillController::class,'index'])->name('skill');
         Route::get("/create",[SkillController::class,'create'])->name('skill.create');
         Route::get("/edit/{skills}",[SkillController::class,'edit'])->name('skill.edit');
+
+
+    });
+
+    Route::prefix('sumary')->group(function(){
+        Route::get("/",[SumaryController::class,'index'])->name('sumary');
+        Route::get("/create",[SumaryController::class,'create'])->name('sumary.create');
+        Route::get("/edit/{sumary}",[SumaryController::class,'edit'])->name('sumary.edit');
+
+
+    });
+
+    Route::prefix('education')->group(function(){
+        Route::get("/",[EducationController::class,'index'])->name('education');
+        Route::get("/create",[EducationController::class,'create'])->name('education.create');
+        Route::get("/edit/{education}",[EducationController::class,'edit'])->name('education.edit');
+
+
+    });
+
+    Route::prefix('experience')->group(function(){
+        Route::get("/",[ExperienceController::class,'index'])->name('experience');
+        Route::get("/create",[ExperienceController::class,'create'])->name('experience.create');
+        Route::get("/edit/{skills}",[ExperienceController::class,'edit'])->name('experience.edit');
 
 
     });
