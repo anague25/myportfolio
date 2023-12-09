@@ -18,18 +18,19 @@ class EditSumary extends Component
     public $address;
     public $email;
     public $phone;
+    public $sumary;
 
 
     public function mount(){
         
-        $this->shortText = $this->skills->shortText;
-        $this->name = $this->skills->name;
-        $this->phone = $this->skills->phone;
-        $this->address = $this->skills->address;
-        $this->email = $this->skills->email;
+        $this->shortText = $this->sumary->shortText;
+        $this->name = $this->sumary->name;
+        $this->phone = $this->sumary->phone;
+        $this->address = $this->sumary->address;
+        $this->email = $this->sumary->email;
     }
 
-    public function store(Sumary $sumary){
+    public function update(){
       
         $this->validate([
             'shortText'=>['required','string'],
@@ -45,12 +46,12 @@ class EditSumary extends Component
           
 
             // insertion
-            $sumary->shortText = $this->shortText;
-            $sumary->name = $this->name;
-            $sumary->phone = $this->phone;
-            $sumary->email = $this->email;
-            $sumary->address = $this->address;
-            $query =  $sumary->save();
+            $this->sumary->shortText = $this->shortText;
+            $this->sumary->name = $this->name;
+            $this->sumary->phone = $this->phone;
+            $this->sumary->email = $this->email;
+            $this->sumary->address = $this->address;
+            $query =  $this->sumary->save();
             if($query){
                 return redirect()->route('sumary')->with('success','the sumary was added successfully');
             }
