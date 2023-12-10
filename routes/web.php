@@ -10,6 +10,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\SumaryController;
@@ -103,6 +104,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get("/",[ProjectController::class,'index'])->name('project');
         Route::get("/create",[ProjectController::class,'create'])->name('project.create');
         Route::get("/edit/{project}",[ProjectController::class,'edit'])->name('project.edit');
+
+    });
+
+    Route::prefix('service')->group(function(){
+        Route::get("/",[ServiceController::class,'index'])->name('service');
+        Route::get("/create",[ServiceController::class,'create'])->name('service.create');
+        Route::get("/edit/{service}",[ServiceController::class,'edit'])->name('service.edit');
 
     });
 
