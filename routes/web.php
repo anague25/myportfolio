@@ -7,6 +7,7 @@ use App\Models\Skill;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Herocontroller;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\ProjectController;
@@ -120,6 +121,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get("/create",[TestimonialController::class,'create'])->name('testimonial.create');
         Route::get("/edit/{testimonial}",[TestimonialController::class,'edit'])->name('testimonial.edit');
 
+    });
+
+    Route::prefix('contact')->group(function(){
+        Route::get("/",[ContactController::class,'index'])->name('contact');
+        Route::get("/create",[ContactController::class,'create'])->name('contact.create');
+        Route::get("/edit/{contact}",[ContactController::class,'edit'])->name('contact.edit');
     });
 
 
