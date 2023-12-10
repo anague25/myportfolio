@@ -13,7 +13,7 @@ class CreateEducation extends Component
     use WithFileUploads;
     use WithPagination;
     public $degree;
-    public $schoolPlace;
+    public $shoolPlace;
     public $year;
     public $shortText;
 
@@ -23,7 +23,7 @@ class CreateEducation extends Component
             'shortText'=>['required','string'],
             'year'=>['required','string'],
             'degree'=>['required','string'],
-            'schoolPlace'=>['required','string'],
+            'shoolPlace'=>['required','string'],
         ]);
 
 
@@ -35,7 +35,7 @@ class CreateEducation extends Component
             $education->shortText = $this->shortText;
             $education->year = $this->year;
             $education->degree = $this->degree;
-            $education->schoolPlace = $this->schoolPlace;
+            $education->shoolPlace = $this->shoolPlace;
            
             $query =  $education->save();
             if($query){

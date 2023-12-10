@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Herocontroller;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\SumaryController;
+use App\Models\Mission;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,8 +86,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::prefix('experience')->group(function(){
         Route::get("/",[ExperienceController::class,'index'])->name('experience');
         Route::get("/create",[ExperienceController::class,'create'])->name('experience.create');
-        Route::get("/edit/{skills}",[ExperienceController::class,'edit'])->name('experience.edit');
+        Route::get("/edit/{experience}",[ExperienceController::class,'edit'])->name('experience.edit');
 
+
+    });
+
+    Route::prefix('mission')->group(function(){
+        Route::get("/",[MissionController::class,'index'])->name('mission');
+        Route::get("/create",[MissionController::class,'create'])->name('mission.create');
+        Route::get("/edit/{mission}",[MissionController::class,'edit'])->name('mission.edit');
 
     });
 

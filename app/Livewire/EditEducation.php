@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Exception;
 use Livewire\Component;
 use App\Models\Education;
 use Livewire\WithPagination;
@@ -18,6 +19,15 @@ class EditEducation extends Component
     public $shortText;
     public $education;
 
+
+    public function mount(){
+        
+        $this->degree = $this->education->degree;
+        $this->schoolPlace = $this->education->schoolPlace;
+        $this->year = $this->education->year;
+        $this->shortText = $this->education->shortText;
+       
+    }
     public function update(){
       
         $this->validate([
