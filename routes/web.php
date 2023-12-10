@@ -9,6 +9,7 @@ use App\Http\Controllers\Herocontroller;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\MissionController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\SumaryController;
@@ -93,8 +94,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::prefix('mission')->group(function(){
         Route::get("/",[MissionController::class,'index'])->name('mission');
-        Route::get("/create",[MissionController::class,'create'])->name('mission.create');
-        Route::get("/edit/{mission}",[MissionController::class,'edit'])->name('mission.edit');
+        Route::get("/create",[ProjectController::class,'create'])->name('mission.create');
+        Route::get("/edit/{mission}",[ProjectController::class,'edit'])->name('mission.edit');
+
+    });
+
+    Route::prefix('project')->group(function(){
+        Route::get("/",[ProjectController::class,'index'])->name('project');
+        Route::get("/create",[ProjectController::class,'create'])->name('project.create');
+        Route::get("/edit/{project}",[ProjectController::class,'edit'])->name('project.edit');
 
     });
 

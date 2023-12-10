@@ -23,6 +23,10 @@ class ListAbout extends Component
 
     }
 
+
+  
+
+
     // public function toggleStatus(About $about){
     //     if($about->active == '0'){
     //         About::where('active','0')->update(['active'=> '0']);
