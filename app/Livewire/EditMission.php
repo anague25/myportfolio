@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Exception;
 use App\Models\Mission;
 use Livewire\Component;
+use App\Models\Experience;
 use Livewire\WithPagination;
 
 class EditMission extends Component
@@ -29,7 +30,7 @@ class EditMission extends Component
       
         $this->validate([
             'shortText'=>['required','string'],
-            'experience'=>['required','string']
+            'experience'=>['required','integer']
             
            
         ]);
@@ -61,6 +62,7 @@ class EditMission extends Component
     }
     public function render()
     {
-        return view('livewire.edit-mission');
+        $experiance = Experience::orderByDesc('id')->get();
+        return view('livewire.edit-mission',['experiance'=>$experiance]);
     }
 }

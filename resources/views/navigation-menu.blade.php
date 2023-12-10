@@ -12,12 +12,6 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('portfolio') }}" :active="request()->routeIs('portfolio')">
                         {{ __('Profil') }}
                     </x-nav-link>
@@ -39,6 +33,32 @@
                         {{ __('Skills') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('sumary') }}" :active="request()->routeIs('sumary')">
+                            {{ __('Sumary') }}
+                        </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('education') }}" :active="request()->routeIs('education')">
+                            {{ __('Education') }}
+                        </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('experience') }}" :active="request()->routeIs('experience')">
+                            {{ __('Experience') }}
+                        </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('mission') }}" :active="request()->routeIs('mission')">
+                            {{ __('Mission') }}
+                        </x-nav-link>
+                </div>
+
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">

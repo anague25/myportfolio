@@ -67,7 +67,7 @@
                 </tbody>
               </table>   
               
-              <p>{{$skills->Links()}}</p>
+              <p>{{$sumary->Links()}}</p>
           
         </div>
       </div> {{-- Nothing in the world is as soft and yielding as water. --}}

@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="align-middle text-center ">Sumary List</h5>
                 <div>
-                    <a class="btn btn-primary" href="{{route('sumary.create')}}">Add Sumary</a>
+                    <a class="btn btn-primary" href="{{route('education.create')}}">Add Sumary</a>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                     <td>{{$item->created_at->diffForHumans()}}</td>
 
                     <td>
-                        <a class="btn btn-primary" href="{{route('sumary.edit',['sumary'=>$item->id])}}">Edit</a>
+                        <a class="btn btn-primary" href="{{route('education.edit',['education'=>$item->id])}}">Edit</a>
                         <a class="btn btn-danger" wire:click='delete({{$item->id}})'>Delete</a>
                     </td>
                   </tr>

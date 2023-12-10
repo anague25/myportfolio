@@ -21,7 +21,7 @@
  
                      {{-- FORMULAIRE --}}
  
-                     <form action="post" wire:submit.prevent ='store' enctype="multipart/form-data">
+                     <form action="post" wire:submit.prevent ='update' enctype="multipart/form-data">
                          @csrf
                          @method('post')
                          <div class="mb-3">
@@ -41,7 +41,7 @@
                         
 
                             <option value=""></option>
-                            @forelse ($experience as $item)
+                            @forelse ($experiance as $item)
                                 <option value="{{$item->id}}">{{$item->job}}</option>
                             @empty
                             <option value=""></option>
@@ -50,7 +50,7 @@
 
                             </select>
                           
-                           @error('address')
+                           @error('experience')
                                <div class="text-danger">{{$message}}</div>
                            @enderror 
                          </div>

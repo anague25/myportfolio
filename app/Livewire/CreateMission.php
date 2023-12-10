@@ -26,7 +26,7 @@ class CreateMission extends Component
       
         $this->validate([
             'shortText'=>['required','string'],
-            'experience'=>['required','string']
+            'experience'=>['required','integer']
             
            
         ]);
@@ -58,7 +58,10 @@ class CreateMission extends Component
     }
     public function render()
     {
-        $experience = Experience::orderByDesc('id');
-        return view('livewire.create-mission',compact('experience'));
+        $experiance = Experience::orderByDesc('id')->get();
+
+        // $experience = Experience::orderByDesc('id')->get();
+        // dd($experience);
+    return view('livewire.create-mission',['experiance'=>$experiance]);
     }
 }

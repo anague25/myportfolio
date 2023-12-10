@@ -14,7 +14,7 @@ class EditEducation extends Component
     use WithFileUploads;
     use WithPagination;
     public $degree;
-    public $schoolPlace;
+    public $shoolPlace;
     public $year;
     public $shortText;
     public $education;
@@ -23,7 +23,7 @@ class EditEducation extends Component
     public function mount(){
         
         $this->degree = $this->education->degree;
-        $this->schoolPlace = $this->education->schoolPlace;
+        $this->shoolPlace = $this->education->shoolPlace;
         $this->year = $this->education->year;
         $this->shortText = $this->education->shortText;
        
@@ -34,7 +34,7 @@ class EditEducation extends Component
             'shortText'=>['required','string'],
             'year'=>['required','string'],
             'degree'=>['required','string'],
-            'schoolPlace'=>['required','string'],
+            'shoolPlace'=>['required','string'],
         ]);
 
 
@@ -46,7 +46,7 @@ class EditEducation extends Component
             $this->education->shortText = $this->shortText;
             $this->education->year = $this->year;
             $this->education->degree = $this->degree;
-            $this->education->schoolPlace = $this->schoolPlace;
+            $this->education->shoolPlace = $this->shoolPlace;
            
             $query = $this->education->save();
             if($query){

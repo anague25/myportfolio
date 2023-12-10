@@ -21,7 +21,7 @@
  
                      {{-- FORMULAIRE --}}
  
-                     <form action="post" wire:submit.prevent ='store' enctype="multipart/form-data">
+                     <form action="post" wire:submit.prevent ='update' enctype="multipart/form-data">
                          @csrf
                          @method('post')
                          <div class="mb-3">
