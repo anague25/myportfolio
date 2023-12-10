@@ -14,6 +14,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\SumaryController;
+use App\Http\Controllers\TestimonialController;
 use App\Models\Mission;
 
 /*
@@ -111,6 +112,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get("/",[ServiceController::class,'index'])->name('service');
         Route::get("/create",[ServiceController::class,'create'])->name('service.create');
         Route::get("/edit/{service}",[ServiceController::class,'edit'])->name('service.edit');
+
+    });
+
+    Route::prefix('testimonial')->group(function(){
+        Route::get("/",[TestimonialController::class,'index'])->name('testimonial');
+        Route::get("/create",[TestimonialController::class,'create'])->name('testimonial.create');
+        Route::get("/edit/{testimonial}",[TestimonialController::class,'edit'])->name('testimonial.edit');
 
     });
 
