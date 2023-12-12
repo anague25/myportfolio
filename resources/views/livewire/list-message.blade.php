@@ -13,7 +13,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-        <div class="card-body">
+        <div class="card-body table-responsive-xxl">
 
             <table class="table align-middle text-center">
                 <thead>
@@ -43,7 +43,8 @@
 
                     <td>
                         {{-- <a class="btn btn-primary" href="{{route('message.see',['message'=>$item->id])}}">see more</a> --}}
-                        <a class="btn btn-danger" wire:click='delete({{$item->id}})'>Delete</a>
+                        <a class="btn btn-danger mb-2 mb-sm-2" wire:click='delete({{$item->id}})'>Delete</a>
+                        <a class="btn btn-warning mb-sm-2" href="{{route('message.show',['message'=>$item->id])}}">see more</a>
                     </td>
                   </tr>
                  @empty
@@ -53,9 +54,9 @@
                  @endforelse
                  
                 </tbody>
-              </table>   
+            </table>   
+            <p>{{$message->Links()}}</p>
               
-              <p>{{$message->Links()}}</p>
           
         </div>
       </div> {{-- Nothing in the world is as soft and yielding as water. --}}

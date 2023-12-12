@@ -34,6 +34,7 @@ Route::get('/', function () {
     $heroes = Hero::where('active','1')->first();
     $skills = Skill::where('active','1')->get();
     $about = About::orderByDesc('id')->first();
+    $social = About::orderByDesc('id')->first();
     return view('myportfolio.index',compact('heroes','about','skills'));
 });
 
@@ -134,9 +135,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::prefix('message')->group(function(){
         Route::get("/",[MessageController::class,'index'])->name('message');
         Route::get("/create",[MessageController::class,'create'])->name('message.create');
+        Route::get("/show/{message}",[MessageController::class,'show'])->name('message.show');
         Route::get("/edit/{message}",[MessageController::class,'edit'])->name('message.edit');
     });
 
+
+   
 
 
 

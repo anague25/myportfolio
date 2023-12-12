@@ -9,10 +9,14 @@ use App\Mail\MessageMail;
 class MessageController extends Controller
 {
     public function index(){
-        return view("message.list",compact('message'));
+        return view("message.list");
     }
     public function create(){
         return view("message.create");
+    }
+    
+    public function show(Message $message){
+        return view("message.show",['message'=>$message]);
     }
     
    

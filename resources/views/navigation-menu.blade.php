@@ -12,84 +12,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('portfolio') }}" :active="request()->routeIs('portfolio')">
-                        {{ __('Profil') }}
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('social') }}" :active="request()->routeIs('social')">
-                        {{ __('Social Network') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    
-                <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
-                        {{ __('About') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <x-nav-link href="{{ route('skill') }}" :active="request()->routeIs('skill')">
-                        {{ __('Skills') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('sumary') }}" :active="request()->routeIs('sumary')">
-                            {{ __('Sumary') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('education') }}" :active="request()->routeIs('education')">
-                            {{ __('Education') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('experience') }}" :active="request()->routeIs('experience')">
-                            {{ __('Experience') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('mission') }}" :active="request()->routeIs('mission')">
-                            {{ __('Mission') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('project') }}" :active="request()->routeIs('project')">
-                            {{ __('Project') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('service') }}" :active="request()->routeIs('service')">
-                            {{ __('Service') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('testimonial') }}" :active="request()->routeIs('testimonial')">
-                            {{ __('Testimonial') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
-                            {{ __('Contact') }}
-                        </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('message') }}" :active="request()->routeIs('message')">
-                            {{ __('Message') }}
-                        </x-nav-link>
-                </div>
-
-
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">

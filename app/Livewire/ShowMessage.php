@@ -2,12 +2,18 @@
 
 namespace App\Livewire;
 
+use App\Models\Message;
 use Livewire\Component;
 
 class ShowMessage extends Component
 {
+
+    public $message;
     public function render()
     {
-        return view('livewire.show-message');
+        $message = Message::findOrFail($this->message->id);
+        // dd($message);
+
+        return view('livewire.show-message',compact('message'));
     }
 }
