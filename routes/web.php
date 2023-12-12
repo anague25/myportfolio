@@ -9,6 +9,7 @@ use App\Http\Controllers\Herocontroller;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
@@ -127,6 +128,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get("/",[ContactController::class,'index'])->name('contact');
         Route::get("/create",[ContactController::class,'create'])->name('contact.create');
         Route::get("/edit/{contact}",[ContactController::class,'edit'])->name('contact.edit');
+    });
+
+
+    Route::prefix('message')->group(function(){
+        Route::get("/",[MessageController::class,'index'])->name('message');
+        Route::get("/create",[MessageController::class,'create'])->name('message.create');
+        Route::get("/edit/{message}",[MessageController::class,'edit'])->name('message.edit');
     });
 
 
