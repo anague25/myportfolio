@@ -16,7 +16,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-        <div class="card-body">
+        <div class="card-body table-responsive-lg">
 
             <table class="table table-sm align-middle text-center">
                 <thead>
@@ -44,7 +44,8 @@
                     {{-- show image --}}
                     <td >
                             {{-- <img src="{{asset('storage/'.$heroes->img)}}" alt="profile-photo" width="150" height="150"> --}}
-                            <div class="d-flex justify-content-center">
+                          
+                            <div class="d-flex justify-content-center align-items-center">
                             <img src="{{$item->imageUrl($item->image)}}" class="text-center border ms-2"  alt="profile-photo" width="60" height="60"> 
                             </div>
                     </td>
@@ -52,14 +53,19 @@
                    
                     <td>{{$item->created_at->diffForHumans()}}</td>
                     <td>
-                        <a class="btn btn-sm btn-primary " href="{{route('service.edit',['service'=>$item->id])}}">Edit</a>
-                        <a class="btn btn-sm btn-danger" wire:click='delete({{$item->id}})'>Delete</a>
+                        <a class="btn btn-sm btn-primary mb-2" href="{{route('service.edit',['service'=>$item->id])}}">Edit</a>
+                        <a class="btn btn-sm btn-danger mb-2" wire:click='delete({{$item->id}})'>Delete</a>
                     </td>
                   </tr>
                  @empty
-                     <div class="text-center text-uppercase alert alert-danger">
-                        <h2>we don't found any data</h2>
-                     </div>
+                 <tr>
+                    <td colspan="6">
+                        <div class="d-flex justify-content-center align-items-center text-danger fs-3 text-uppercase">
+                            <span>no data found</span>
+                            <img src="{{asset('storage/images/empty/empty.svg')}}" width="150" alt="">
+                        </div>
+                    </td>
+                   </tr>
                  @endforelse
                  
                 </tbody>

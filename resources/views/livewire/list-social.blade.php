@@ -18,7 +18,7 @@
                 @endif
         <div class="card-body">
 
-            <table class="table align-middle text-center">
+            <table class="table align-middle text-center table-responsive-lg">
                @if ($social->isNotEmpty())
                <thead>
                 <tr>
@@ -44,23 +44,30 @@
                     </td>
                    
                     {{-- show image --}}
-                    <td class="d-flex justify-content-center">
+                    <td >
                             {{-- <img src="{{asset('storage/'.$heroes->img)}}" alt="profile-photo" width="150" height="150"> --}}
-                            <img src="{{$item->imageUrl($item->icon)}}" class="text-center border pt-2"  alt="profile-photo" width="56" height="56"> 
+                            <div class="d-flex justify-content-center align-items-center">
+
+                                <img src="{{$item->imageUrl($item->icon)}}" class="text-center border pt-2"  alt="profile-photo" width="56" height="56"> 
+                            </div>
                     </td>
                     {{-- <td>{{Str::limit($item->img,20)}}</td> --}}
                    
                     <td>{{$item->created_at->diffForHumans()}}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('social.edit',['social' => $item->id])}}">Edit</a>
-                        <a class="btn btn-danger" wire:click='delete({{$item->id}})'>Delete</a>
+                        <a class="btn btn-primary mb-2" href="{{route('social.edit',['social' => $item->id])}}">Edit</a>
+                        <a class="btn btn-danger mb-2" wire:click='delete({{$item->id}})'>Delete</a>
                     </td>
                   </tr>
                  @empty
-                     <div class="text-center text-uppercase alert alert-danger alert-dismissible fade  show" role="alert">
-                        <h2>we don't found any data</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                     </div>
+                 <tr>
+                    <td colspan="7">
+                        <div class="d-flex justify-content-center align-items-center text-danger fs-3 text-uppercase">
+                            <span>no data found</span>
+                            <img src="{{asset('storage/images/empty/empty.svg')}}" width="150" alt="">
+                        </div>
+                    </td>
+                   </tr>
                  @endforelse
                  
                 </tbody>

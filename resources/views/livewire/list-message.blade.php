@@ -13,7 +13,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-        <div class="card-body table-responsive-xxl">
+        <div class="card-body table-responsive-lg">
 
             <table class="table align-middle text-center">
                 <thead>
@@ -43,14 +43,19 @@
 
                     <td>
                         {{-- <a class="btn btn-primary" href="{{route('message.see',['message'=>$item->id])}}">see more</a> --}}
-                        <a class="btn btn-danger mb-2 mb-sm-2" wire:click='delete({{$item->id}})'>Delete</a>
-                        <a class="btn btn-warning mb-sm-2" href="{{route('message.show',['message'=>$item->id])}}">see more</a>
+                        <a class="btn btn-danger mb-2 " wire:click='delete({{$item->id}})'>Delete</a>
+                        <a class="btn btn-warning mb-2" href="{{route('message.show',['message'=>$item->id])}}">see more</a>
                     </td>
                   </tr>
                  @empty
-                     <div class="text-center text-uppercase alert alert-danger">
-                        <h2>we don't found any data</h2>
-                     </div>
+                 <tr>
+                    <td colspan="7">
+                        <div class="d-flex justify-content-center align-items-center text-danger fs-3 text-uppercase">
+                            <span>no data found</span>
+                            <img src="{{asset('storage/images/empty/empty.svg')}}" width="150" alt="">
+                        </div>
+                    </td>
+                   </tr>
                  @endforelse
                  
                 </tbody>
