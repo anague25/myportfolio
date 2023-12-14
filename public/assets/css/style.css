@@ -127,6 +127,9 @@ h6 {
   text-decoration: none;
 }
 
+#main-show {
+  margin-left: 300px;
+}
 #main {
   margin-left: 300px;
 }
@@ -1040,6 +1043,8 @@ section {
   margin: 0;
   font-size: 15px;
 }
+
+
 
 .breadcrumbs ol li+li {
   padding-left: 10px;

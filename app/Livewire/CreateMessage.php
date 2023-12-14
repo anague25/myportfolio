@@ -6,6 +6,7 @@ use App\Models\Message;
 use Livewire\Component;
 use App\Mail\MessageMail;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Contact;
 
 
 class CreateMessage extends Component
@@ -47,6 +48,7 @@ class CreateMessage extends Component
     }
     public function render()
     {
-        return view('livewire.create-message');
+        $infoContact = Contact::where('action','1')->first();
+        return view('livewire.create-message',compact('infoContact'));
     }
 }

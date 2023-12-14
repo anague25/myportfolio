@@ -1,23 +1,29 @@
 <?php
 
-use App\Http\Controllers\EducationController;
 use App\Models\Hero;
 use App\Models\About;
 use App\Models\Skill;
+use App\Models\Sumary;
+use App\Models\Mission;
+use App\Models\Project;
+use App\Models\Service;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Herocontroller;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\SocialController;
+use App\Http\Controllers\SumaryController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\SkillController;
-use App\Http\Controllers\SocialController;
-use App\Http\Controllers\SumaryController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\TestimonialController;
-use App\Models\Mission;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +40,13 @@ Route::get('/', function () {
     $heroes = Hero::where('active','1')->first();
     $skills = Skill::where('active','1')->get();
     $about = About::orderByDesc('id')->first();
-    $social = About::orderByDesc('id')->first();
-    return view('myportfolio.index',compact('heroes','about','skills'));
+    $sumary = Sumary::orderByDesc('id')->first();
+    $service = Service::orderByDesc('id')->get();
+    $education = Education::orderByDesc('id')->get();
+    $testimonial = Testimonial::orderByDesc('id')->get();
+    $experience = Experience::with('mission')->orderByDesc('id')->get();
+    $portfolio = Project::orderByDesc('id')->get();
+    return view('myportfolio.index',compact('heroes','about','skills','service','testimonial','sumary','education','experience','portfolio'));
 });
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
@@ -108,6 +119,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get("/",[ProjectController::class,'index'])->name('project');
         Route::get("/create",[ProjectController::class,'create'])->name('project.create');
         Route::get("/edit/{project}",[ProjectController::class,'edit'])->name('project.edit');
+        Route::get("/portfolio-details/{portfolio}",[ProjectController::class,'show'])->name('project.show');
 
     });
 
