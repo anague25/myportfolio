@@ -124,6 +124,7 @@
               </ul>
             </div>
             <div class="portfolio-description">
+            
               <h2>{{$portfolio->projectName}}</h2>
               <p>
                 {{$portfolio->shortText}}
